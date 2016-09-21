@@ -1,0 +1,138 @@
+%!TEX root = paper.tex
+%model.tex
+
+\section{Model}
+\label{sec:model} 
+
+
+%\begin{tikzpicture}[scale = 6]
+%
+%       % x axis
+%\draw [->] (0, 0) -- (1.1, 0) node [below right] {$P_0$};
+%\draw [shift={(1.0, 0)}] (0,0.02) -- (0, -0.02) node[below] {$Cr(0)$};
+%
+%       % y axis
+%\draw [->] (0, 0) -- (0, 1.3) node [above left] {$P_1$};
+%\draw [shift={(0, 1.2)}] (-0.02,0) -- (0.02,0) node[shift={(-0.8,0)}] {$Cr(1)$};
+%
+%	%diagonal
+%\draw [->,dashed] (-0.1, -0.1) -- (1.2, 1.2) node [above] {$B$};
+%
+%	%right
+%\draw [-,dashed] (1, 0) -- (1, 1.2);
+%
+%	%top
+%\draw [-,dashed] (0, 1.2) -- (1, 1.2); 
+%
+%	%point A
+%\draw[shift={(0.2, 1.2)}] node [above] {$A$};
+%
+%\end{tikzpicture}
+
+%
+%\usetikzlibrary{patterns}
+%
+%\newcommand{\myaxes}{
+%	\draw [->|] (0,0) node [left=1mm] {\scriptsize $$} -- node [rotate=90,above] {vertical label} (0,1.2) node [left=1mm,overlay] {\scriptsize $Cr(1)$};
+%	\draw [->|] (0,0) node [below=1mm] {\scriptsize $0$} -- node [below] {horizontal label} (1,0) node [below=1mm] {\scriptsize $Cr(0)$};
+%}
+%
+%\tikzstyle{full-protection}=[blue,pattern=north east lines,pattern color=blue];
+%\tikzstyle{full-self}=[orange,pattern=north west lines,pattern color=orange];
+%\tikzstyle{full-market}=[red,pattern=crosshatch dots,pattern color=red];
+%
+%\tikzstyle{partial-protection}=[blue,pattern=north east lines,pattern color=blue,opacity=.4];
+%\tikzstyle{partial-self}=[orange,pattern=north west lines,pattern color=orange,opacity=.4];
+%\tikzstyle{partial-market}=[red,pattern=crosshatch dots,pattern color=red,opacity=.4];
+%
+%\tikzstyle{partial-all}=[gray,pattern=grid,pattern color=gray,opacity=.4];
+%
+%\tikzstyle{passivity}=[dashed,thick];
+%\tikzstyle{special}=[red,thick];
+%
+%\begin{tikzpicture}
+%
+%	%	Legend
+%	
+%%	\draw [special] (0,-.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {partial protection and full market insurance};
+%
+%	\draw [partial-self,line width=.8mm,dash pattern=on 1mm off 1mm] (-.2,-.875)--++(.6,0) node [right=0mm,black,opacity=1] {area 6};
+%	\draw [partial-market,line width=.8mm,dash pattern=on 1mm off 1mm] (.4,-.875)--++(-.6,0);
+%
+%	\draw [partial-protection,line width=.6mm] (-.2,-1.375)--++(.6,0) node [right=0mm,black,opacity=1] {area 5};
+%	
+%	\draw [partial-all] (0,-.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 4};
+%	\draw [full-market] (0,0) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 3};
+%	\draw [full-self] (0,.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 2};
+%	\draw [full-protection] (0,1) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 1};
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}[>=stealth,scale=7]
+%
+%%	\draw [partial-all,draw=none] (.125,0) rectangle (1,.5);
+%%	\draw [full-self,draw=none] (0,0)--(0,.375)--(.625,.375)--(1,0)--(0,0);
+%%	\draw [full-protection,draw=none] (0,0) -- (.125,.125) -- (.125,1) -- (0,1) -- (0,0);
+%%	% \draw [full-market,draw=none] (.125,.5) rectangle (1,1);
+%%	\draw [full-market,draw=none] (0,.5) rectangle (1,1); % combined (1) and (5)
+%%	
+%%	\draw [partial-market,line width=.8mm,dash pattern=on 1mm off 1mm] (.5,.5) node [below,black] {\small FIX ME}--(1,.5);
+%%	\draw [partial-self,line width=.8mm,dash pattern=on 1mm off 1mm] (1,.5)--(.5,.5);
+%%	
+%%	\draw [partial-protection,line width=.6mm] (.125,.5)--(.125,1);
+%	
+%%	\draw [special] (0,0) -- (.5,.5) -- (0,.5) -- (0,0);
+%	\myaxes{}
+%\end{tikzpicture}
+
+
+\subsection{Definitions}
+As we use the terms divisiveness, polarization, and privacy throughout the paper, we take care to define them here.
+
+\begin{itemize}
+\item  \emph{Divisiveness} means strong disagreement. We measure divisiveness by the standard deviation in citizen valuation for the law.
+
+\item \emph{Polarization} means a the process of individuals grouping together in herds, often at ideological extremes. Our model is able to measure divisiveness directly through influence parameters.  In practice we can usually only measure the polarization of outcomes, which may or may not reflect the polarization of individual actors.  
+
+\item \emph{Privacy} means a right of individuals to have private property that is free from inspection or search. Privacy is a right afforded by most democratic societies primarily motivated by preventing abuse.
+
+\end{itemize}
+
+\subsection{Overview}
+Our model exhibits the following key features. 
+\begin{itemize}
+\item Each individual may have an arbitrary initial evaluation of any law based on any reason.
+\item Each individual's evaluation may (but need not) be influenced by evaluations of others.
+\item Each individual may have a varying level of influence within a given social network.
+\item We distinguish an individual's derived benefit of a law from an individual's support of a law. 
+\item An individual's support is a function of their derived benefit together with a weighted influence of others. %influence With respect to a fixed law, suppose the mixing process happens and we measure, then we cannot tell the difference between the influence and the case where each individual makes their own evaluation or is influenced by others.  
+\end{itemize}
+
+%Want to talk about privacy.
+\subsection {Citizen Influence}
+For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We sometimes refer to $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
+
+% into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. 
+
+To make a decision, each person aggregates their influences, so that for each $i$ we have $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
+
+\subsection{Citizen Valuations of Laws}
+Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
+%Alternatively, 
+define $$V_L(i)\in\mathbb{R}$$ to be the direct impact of the law on person $i$. The direct  impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
+
+Certainly in many cases, an individual's direct valuation for a law is perfectly in tune with the perceived direct impact on the law.  In such cases, a person $i$'s continued support for $L$ might continue to be $V_L(i)$ indefinitely. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
+
+In other cases, for example where a law has little or no direct impact on the individual, a ban on muslims for example, initial evaluation of the law may be something very close to zero, i.e. neither positive nor negative.  Nevertheless a person's view of the law may evolve based on the views and experiences of their influences.  In such cases, we may suppose that after some amount of time, an individual's support for L evolves to become $$U_L(i)=\sum_ja_{ij}V_L(j).$$
+
+
+%If we order the elements of this vector and graph it on a line, we can see directly from the graph a number of things
+%\begin{enumerate}
+%\item what percentage supports the law -- aka where the graph crosses the horizontal axis
+%\item the existence of distinct homogeneous clusters -- regions along the horizontal axis where the function takes on a homogeneous value
+%\item the extent to which the law is divisive for the society -- aka the magnitude of disutility for non-supporters of the law.
+%\end{enumerate}
+%
+%How does privacy enter this picture?
+%Privacy decreases the law's overall enforceability, and in particular, it makes it harder to enforce the law selectively.
+%
+%The crux of the analysis will be to show that privacy is especially welfare-enhancing in cases where a society is more polarized.
