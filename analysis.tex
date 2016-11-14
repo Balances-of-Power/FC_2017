@@ -78,25 +78,21 @@ Another notion of privacy supposes that authorities must have individualized rea
 
 \subsection{A Two-Party Influence Framework}
 
-To further explore issues of privacy, we will place additional structure on citizen affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  
+To further explore issues of privacy, we will place additional structure on citizen affinity.  In this section, we analyze the special case that there are two subsets of citizens, labeled $G_0$ and $G_1$.  Citizens in $G_0$ are assumed to form the majority with population $n_0$.  Citizens in $G_1$ form the minority with population $n_1 < n_0$.  We will also refer to members of $G_0$ and $G_1$ as type 0 and type 1, respectively.  We assume that all members of a group $G_k$ share the same probability of breaking a law, labeled $C(k)$, the same probability of being searched, labeled $S(k)$.  We also assume all citizens share the same direct cost for each crime committed, labeled $l$.
 
-Within each group, we assume that all citizens share identical opinions regarding laws applied to their own group, and they also share identical opinions on laws applied to group outsiders. 
- %have identical influenced preferences.  That is, $U_L$ is constant in each group.  
+Within each group, we further assume that all citizens share the same level of support for all laws.  For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j \in G_0$; $i \in G_0, j \in G_1$; $i \in G_1, j \in G_0$; and $i,j \in G_1$. In this case, regardless of any individual's initial valuation of a law, the resulting final support for the law would be uniform within each group.
 
-For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$; $i<n_0,j\geq n_0$; $i\geq n_0,j < n_0$; and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a law, the resulting final support for the law would be uniform within each group.  
-
-As another example, we could assume that each of the two subgroups of citizens included a single influential thought leader, labeled $t_0$ and $t_1$.   
-but decided on their support for the law on the exclusive basis of an aggregation of valuations from exactly two individuals labeled $i$ and $j$.  Citizens aligned with both $i$ and $j$ would have one valuation.  Citizens aligned with $i$ but not $j$ would have another, and so forth.  In terms of eventual support of a law, this scenario is indistinguishable from the example above.
+As another example, we could assume that each of the two subgroups of citizens included a single influential thought leader, labeled $t_0 \in G_0$ and $t_1 \in G_1$.  Suppose that every individual only had positive affinity for these two thought leaders, and the vector of affinities within each group was uniform.  In terms of final support for a law, this scenario is indistinguishable from the example above.
 
 %ese two scenAs in the previous case, regardless of individuals' initial valuations of the law, they would conform to $V_L(i)$at a fundamental experimental level, we e affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_{ij}$.  For exposition, we make the additional assumption that 
 
-For the sake of example, we will use the notations $a_{00}$ to represent the average affinity of an individual in the majority to the majority position.  We use $a_{01}$ to represent a majority individual's affinity for a minority person, and so forth for the other cases.  
+Regardless of how support is formed, we will use the notation $A_{00} = \sum_{i,j \in G_0} a_{ij} / n_0^2$ to represent the average affinity an individual in the majority has for other majority individuals.  We use $A_{01} = \sum_{i \in G_0, j \in G_1} a_{ij} / n_0 n_1$ to represent the average affinity a member of the majority has for members of the minority, and so forth for the other cases.
 
-Our only additional assumption is rather benign.  We assume that each group has a higher inter-group affinity than a cross-group affinity.  That is, 
-%$a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.  This also implies that 
+Our last assumption encodes some degree of polarization in this society.  We assume that each group has a higher inter-group affinity than a cross-group affinity.  That is, 
+
 \begin{align} 
-a_{00} > \frac{1}{N}=\frac{1}{n_0+n_1} > a_{01} \\
-a_{11} > \frac{1}{N}=\frac{1}{n_0+n_1}>  a_{10}
+A_{00} > \frac{1}{N}=\frac{1}{n_0+n_1} > A_{01} \\
+A_{11} > \frac{1}{N}=\frac{1}{n_0+n_1}>  A_{10}
 \end{align}
 
 Given a law $(C, S, F)$, let $p_0 = C(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = C(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure~\ref{fig:criminals} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $C(0)$ and $C(1)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
@@ -155,27 +151,27 @@ Given a law $(C, S, F)$, let $p_0 = C(0)S(0)F$ be the fraction of the majority t
 \end{figure}
 
 
-Since more than half of the population is of type 0, a law may pass whenever the support of each type-0 individual is nonnegative.  We may compute support from individuals of type 0 as follows,
+Since more than half of the population is in $G_0$, a law may pass whenever the support of each type 0 individual is nonnegative.  We may compute support from individuals of type 0 as follows,
 
 \begin{align}
-U_L(i)&(0) = n_0 a_{00}  V_L(0) + n_1 a_{01}  V_L(1) \\
-&= \beta t - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
-&= \beta \left[ \frac{n_0 p_0}{n_0 + n_1}   + \frac{n_1 p_1}{n_0 + n_1} \right]  - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
-&= \left[  \frac{\beta n_0}{n_0 + n_1} - n_0 a_{00}P  \right]p_0 + \left[ \frac{\beta n_1}{n_0 + n_1} -  n_1 a_{01}P \right] p_1
+U_L(i)(0) &= n_0 A_{00}  V_L(0) + n_1 A_{01}  V_L(1) \\
+&= n_0 A_{00}  [l (p_0 n_0 + p_1 n_1) - p_0 P] + n_1 A_{01}  [l (p_0 n_0 + p_1 n_1) - p_1P] \\
+&= l (p_0 n_0 + p_1 n_1)  - n_0 A_{00}p_0 P - n_1 A_{01}  p_1 P \\
+&=   [ l  -  P A_{00} ]n_0 p_0  + [l - P A_{01}] n_1 p_1  \\
 \end{align}
 
-Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\beta}{n_0 + n_1} -   a_{01}P $, we can write,
+Letting $b_{00} =  l  -  P A_{00} $ and $b_{01} = l - P A_{01} $, we can write,
 
 \begin{align}
 U_L(0) = b_{00}n_0p_0 + b_{01} n_1p_1 
 \end{align}
 
-Our assumption that $a_{00} > a_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
+Our assumption that $A_{00} > A_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
 
 \begin{enumerate}
-\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 \leq 0$.  This will happen whenever $\beta \leq   a_{01}P(n_0 + n_1)  $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
-\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $  a_{01}P(n_0 + n_1) < \beta  \leq a_{00}P(n_0 + n_1) $, or for intermediary amounts of benefit.  In this case, the majority will tend to support laws that punish the minority more and the majority less.
-\item $\partial U_L(0) / \partial p_0 > 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $   a_{00}P(n_0 + n_1) < \beta$, or for high amounts of benefit.  In this case, the majority will tend to support laws that punish both groups as much as possible.
+\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 \leq 0$.  This will happen whenever $l \leq   A_{01}P $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
+\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $  A_{01}P < l  \leq A_{00}P $, or for intermediary amounts of benefit.  In this case, the majority will tend to support laws that punish the minority more and the majority less.
+\item $\partial U_L(0) / \partial p_0 > 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $   A_{00}P < l$, or for high amounts of benefit.  In this case, the majority will tend to support laws that punish both groups as much as possible.
 \end{enumerate}
 
 The middle possibility, in which majority support increases with $p_1$ but decreases with $p_0$ is of particular interest, since this is the case in which the majority would favor the most divisive treatment of the two groups.
@@ -194,7 +190,7 @@ Using a similar argument to that above, we can derive the support of a type 1 ci
 U_L(1) =  b_{10} n_0p_0 + b_{11}n_1p_1
 \end{align}
 
-where $b_{10} = \frac{\beta}{n_0 + n_1} -   a_{10}P$ and $b_{11} = \frac{\beta }{n_0 + n_1} -  a_{11}P $ .  Since we assume $a_{10} < a_{11}$, we have $b_{10} > b_{11}$.
+where $b_{10} = l -   A_{10}P$ and $b_{11} = l -  A_{11}P $ .  Since we assume $A_{10} < A_{11}$, we have $b_{10} > b_{11}$.
 
 We compute divisiveness as the standard deviation,
 
@@ -214,10 +210,10 @@ In the region of laws that have majority support, it can be shows that $U_L(0) >
 \begin{align}
 s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  b_{00}n_0p_0 + b_{01} n_1p_1 - b_{10} n_0p_0 - b_{11}n_1p_1 \right) \\
 &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( b_{00} - b_{10} )n_0p_0 + ( b_{01} - b_{11})n_1p_1 \right) \\
-&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( a_{10} - a_{00} )P n_0p_0 + ( a_{11} - a_{01})P n_1p_1 \right) \\
+&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( A_{10} - A_{00} )P n_0p_0 + ( A_{11} - A_{01})P n_1p_1 \right) \\
 \end{align}
 
-by the ordering on our affinities, we know $a_{10} - a_{00}  < 0$ and $a_{11} - a_{01} > 0$ so
+by the ordering on our affinities, we know $A_{10} - A_{00}  < 0$ and $A_{11} - A_{01} > 0$ so
 
 \begin{align}
 \partial s_L / \partial p_0 <0 \\
@@ -289,7 +285,7 @@ Rearranging,
 
 When $\rho$ is close enough to 0, the left hand side is nonnegative and the right hand side is nonpositive, so the constraint does not bind.  The set of possible laws is therefore not reduced.  On the other hand, when $\rho$ is close enough to 1, the left hand side is nonpositive and the right hand side is nonnegative, so the constraint binds unless $S(0) = S(1) = 0$.  No law can pass the privacy requirement except for the trivial one that doesn't punish anyone.  
 
-The more interesting region is when $rho$ lies between  $C(0)F$ and $C(1)F$.  In the case that $C(1) > C(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
+The more interesting region is when $\rho$ lies between  $C(0)F$ and $C(1)F$.  In the case that $C(1) > C(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
 
 \begin{align}
 \frac{S(1)}{S(0)} &>  \frac{\rho n_0 - n_0 C(0)F }{n_1 C(1)F - \rho n_1}
