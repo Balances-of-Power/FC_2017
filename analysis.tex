@@ -21,9 +21,13 @@ The probability that citizen $i$ is punished is therefore $S(i)C(i)F$.
 Let $P$ be the punishment for violating the law. Then each citizen's individual utility based only on the law's expected punishment on them may be given by 
 $$S(i)C(i)F\cdot P.$$
 
-We may also compute the total number of citizens punished by the law as $$\sum_j S(j)C(j)F.$$  In this analysis we assume that an individual who passes a law obtains some benefit for criminalizing the specific activity that the law targets, and so the individual receives a net gain in proportion to the percentage of the population that is successfully targeted by the law.  In this framework then, we construe the initial valuation of the law $L$ to person $i$ to be the difference between the total expected punishment  for all citizens (weighted by a constant $\beta$) and the individual's expected punishment just in case she breaks the law. That is,  
+We may also compute the total number of citizens punished by the law as $$\sum_j S(j)C(j)F.$$  
 
-$$V_L(i) = \beta \frac{\sum_j S(j)C(j)F}{N} - S(i)C(i)F\cdot P$$
+As far as the benefits of a law go, we assume that each individual $i$ suffers a cost $l_i$ each time a particular crime is committed.  This may be interpreted to include direct effects (e.g. the individual is targeted by theft or violence) as well as indirect effects (e.g. the prevalence of a crime makes the individual feel less welcome in their community).  For the current analysis, we assume that the number of crimes is reduced by exactly the number of people punished.  In other words, we do not allow for deterrent effects.  If such effects exist, they may multiply the effects of each search, and they may cause non-linearities in the valuation functions.  We defer these interesting issues to a future analysis.
+
+Given these assumptions, we can write the initial valuation of law $L$ to person $i$ as the difference between the benefit gained from less crime and the individual's expected punishment in case she breaks the law. That is,  
+
+$$V_L(i) = l_i \sum_j S(j)C(j)F - S(i)C(i)F\cdot P$$
 
 %Each citizen earns a benefit from the law, proportional to the number of people that are caught, but earns disutility P if she is punished.
 
@@ -79,9 +83,10 @@ To further explore issues of privacy, we will place additional structure on citi
 Within each group, we assume that all citizens share identical opinions regarding laws applied to their own group, and they also share identical opinions on laws applied to group outsiders. 
  %have identical influenced preferences.  That is, $U_L$ is constant in each group.  
 
-For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$; $i<n_0,j\geq n_0$; $i\geq n_0,j < n_0$; and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a low, the end resulting support for the law would be a uniform  aggregate value from the group.  
+For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$; $i<n_0,j\geq n_0$; $i\geq n_0,j < n_0$; and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a law, the resulting final support for the law would be uniform within each group.  
 
-Note also that from a data-collection perspective, we would obtain the exact same valuations if instead we assumed that individuals in each of the four groups had independent valuations of Laws, but decided on their support for the law on the exclusive basis of an aggregation of valuations from exactly two individuals labeled $i=0$ and $j=1$.  Citizens aligned with both $i$ and $j$ would have one valuation.  Citizens aligned with $i$ but not $j$ would have another, and so forth.  In terms of eventual support of a law, this scenario is indistinguishable from the example above.
+As another example, we could assume that each of the two subgroups of citizens included a single influential thought leader, labeled $t_0$ and $t_1$.   
+but decided on their support for the law on the exclusive basis of an aggregation of valuations from exactly two individuals labeled $i$ and $j$.  Citizens aligned with both $i$ and $j$ would have one valuation.  Citizens aligned with $i$ but not $j$ would have another, and so forth.  In terms of eventual support of a law, this scenario is indistinguishable from the example above.
 
 %ese two scenAs in the previous case, regardless of individuals' initial valuations of the law, they would conform to $V_L(i)$at a fundamental experimental level, we e affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_{ij}$.  For exposition, we make the additional assumption that 
 
