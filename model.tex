@@ -89,39 +89,39 @@
 As we use the terms divisiveness, polarization, and privacy throughout the paper, we take care to define them here.
 
 \begin{itemize}
-\item  \emph{Divisiveness} means strong disagreement. We measure divisiveness by the standard deviation in citizen valuation for the law.
+\item  \emph{Divisiveness} of a law refers to the extent to which the different citizens value the law differently -- measured, for example, by the standard deviation in valuations.
 
-\item \emph{Polarization} means a the process of individuals grouping together in herds, often at ideological extremes. Our model is able to measure divisiveness directly through influence parameters.  In practice we can usually only measure the polarization of outcomes, which may or may not reflect the polarization of individual actors.  
+\item \emph{Polarization} of a society with respect to a law refers to the grouping of individuals into sets having disparate valuation of that law. %Our generic model witnesses polarization directly through its influence parameters; whereas in practice we can usually only measure the polarization of outcomes, leaving the incentive mechanism opaque. %which may or may not reflect the polarization of individual actors.  
 
-\item \emph{Privacy} means a right of individuals to have private property that is free from inspection or search. Privacy is a right afforded by most democratic societies primarily motivated by preventing abuse.
+\item \emph{Privacy} refers to an individual's ability to possess property (physical or intellectual) that is free from inspection or search. %This paper will focus on laws related to privacy in this sense.   %substantial portion of our  Many of our laws Privacy is a right afforded by most democratic societies primarily motivated by preventing abuse.
 
 \end{itemize}
 
 \subsection{Overview}
-Our model exhibits the following key features. 
+Our general model presents an incentive structure for explaining polarization of a society with respect to divisive laws. Given a specific law, our model assumes the following. 
 \begin{itemize}
-\item Each individual may have an arbitrary initial evaluation of any law based on any reason.
-\item Each individual's evaluation may (but need not) be influenced by evaluations of others.
-\item Each individual may have a varying level of influence within a given social network.
-\item We distinguish an individual's derived benefit of a law from an individual's support of a law. 
-\item An individual's support is a function of their derived benefit together with a weighted influence of others. %influence With respect to a fixed law, suppose the mixing process happens and we measure, then we cannot tell the difference between the influence and the case where each individual makes their own evaluation or is influenced by others.  
+\item Each individual begins with an initial evaluation of the law. We refer to this initial evaluation as the derived benefit for that individual.
+\item Each individual's support for a law may (but need not) be influenced by other individuals.
+\item Individuals are heterogeneous in their ability to influence others.
+%\item Each individual may have a non-commutative influence on another individual's evaluation.
+%%\item We distinguish an individual's derived benefit of a law from an individual's support of a law. 
+%\item An individual's support is a function of their derived benefit together with a weighted influence of others. %influence With respect to a fixed law, suppose the mixing process happens and we measure, then we cannot tell the difference between the influence and the case where each individual makes their own evaluation or is influenced by others.  
 \end{itemize}
 
 %Want to talk about privacy.
 \subsection {Citizen Influence}
-For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We sometimes refer to $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
+For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We may think of $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
 
 % into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. 
 
-To make a decision, each person aggregates their influences, so that for each $i$ we have $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
+Each individual will arrive at a level of support for the law based on a weighted average of the valuations of their influences, where the weighting is determined by the influence parameters $a_{ij}$. To be consistent with the notion of weighted average, we thus require $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
 
 \subsection{Citizen Valuations of Laws}
 Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
 %Alternatively, 
-define $$V_L(i)\in\mathbb{R}$$ to be the direct impact of the law on person $i$. The direct  impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
+let $$V_L(i)\in\mathbb{R}$$ represent the direct impact of the law on person $i$. We assume that the direct impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
 
-Certainly in many cases, an individual's direct valuation for a law is perfectly in tune with the perceived direct impact on the law.  In such cases, a person $i$'s continued support for $L$ might continue to be $V_L(i)$ indefinitely. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
-
+If an individual's direct valuation for a law is perfectly in tune with the direct impact on the law then this person's support for a law will be $V_L(i)$. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
 In other cases, for example where a law has little or no direct impact on the individual, a ban on muslims for example, initial evaluation of the law may be something very close to zero, i.e. neither positive nor negative.  Nevertheless a person's view of the law may evolve based on the views and experiences of their influences.  In such cases, we may suppose that after some amount of time, an individual's support for L evolves to become $$U_L(i)=\sum_ja_{ij}V_L(j).$$
 
 
