@@ -121,7 +121,7 @@ $p_0 = C_0S_0F$ as the fraction of the majority that are punished, and $p_1 = C_
 \begin{center}
 
 
-\begin{tikzpicture}[scale = 4]
+\begin{tikzpicture}[scale = 3]
 
        % x axis
 \draw [->] (0, 0) -- (1.1, 0) node [below right] {$p_0$};
@@ -132,7 +132,7 @@ $p_0 = C_0S_0F$ as the fraction of the majority that are punished, and $p_1 = C_
 \draw [shift={(0, 1.2)}] (-0.02,0) -- (0.02,0) node[shift={(-0.8,0)}] {$C_1$};
 
 	%diagonal
-\draw [->,dashed] (-0.1, -0.1) -- (1.2, 1.1) node [above] {$B$};
+\draw [->,dashed] (0, 0) -- (1.2, 1.1) node [above] {$B$};
 
 	%attribute privacy line 
 \draw [->,dashed] (0, 0) -- (1.1, 1.32) node [above] {$C$};
@@ -224,55 +224,54 @@ U_1 =  [ l  -  P A_{11} ]n_1 p_1  + [l - P A_{10}] n_0 p_0
 We now compute the divisiveness of a law $L$ as the standard deviation,
 
 \begin{align}
-s_L &= \sqrt{var(U_L)}  =  \sqrt{E\left[ \left(U_L - \overline{U_L} \right)^2 \right] }  \\
-&= \sqrt{ \frac{ n_0\left(U_0 - \overline{U_L}\right)^2 + n_1\left(U_1 - \overline{U_L} \right)^2 }{n_0+n_1}  }
+\nonumber s_L &= \sqrt{var(U_L)}  =  \sqrt{E\left[ \left(U_L - \overline{U_L} \right)^2 \right] }  \\
+\nonumber &= \sqrt{ \frac{ n_0\left(U_0 - \overline{U_L}\right)^2 + n_1\left(U_1 - \overline{U_L} \right)^2 }{n_0+n_1}  },
 \end{align}
-
-where $\overline{U_L} = \frac{n_0 U_0 + n_1U_1 }{n_0 + n_1}$ is the average support for the law.  After some algebra, this can be simplified to the following,
-
+where $\overline{U_L} = \frac{n_0 U_0 + n_1U_1 }{n_0 + n_1}$ is the average support for the law.  After applying some algebra, and using the fact that $U_0>U_1$ in the region where laws have majority support, we obtain 
+% it can be shows that %$U_0 > U_1$this can be simplified to the following:
 \begin{align}
-s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left| U_0 - U_1 \right|
-\end{align}
-
-In the region of laws that have majority support, it can be shows that $U_0 > U_1$. Substituting for $U_0$ and $U_1$, we have
-
-\begin{align}
-\nonumber s_L = &\frac{\sqrt{n_0n_1}}{n_0 + n_1} \big(  [ l  -  P A_{00} ]n_0 p_0  + [l - P A_{01}] n_1 p_1   \\
-\nonumber & - [ l  -  P A_{11} ]n_1 p_1  + [l - P A_{10}] n_0 p_0   \big) \\
-%&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  b_{00}n_0p_0 + b_{01} n_1p_1 - b_{10} n_0p_0 - b_{11}n_1p_1 \right) \\
-%&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( b_{00} - b_{10} )n_0p_0 + ( b_{01} - b_{11})n_1p_1 \right) \\
+\nonumber s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left| U_0 - U_1 \right|\\
 \nonumber = &\frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( A_{10} - A_{00} )P n_0p_0 + ( A_{11} - A_{01})P n_1p_1 \right).
 \end{align}
 
-By the ordering on our affinities, we know $A_{10} - A_{00}  < 0$ and $A_{11} - A_{01} > 0$ so
+%In the region of laws that have majority support, it can be shows that $U_0 > U_1$. Substituting for $U_0$ and $U_1$, we have
+%
+%\begin{align}
+%\nonumber s_L = &\frac{\sqrt{n_0n_1}}{n_0 + n_1} \Big[  [ l  -  P A_{00} ]n_0 p_0  + [l - P A_{01}] n_1 p_1   \\
+%\nonumber & - [ l  -  P A_{11} ]n_1 p_1  + [l - P A_{10}] n_0 p_0   \Big] \\
+%%&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  b_{00}n_0p_0 + b_{01} n_1p_1 - b_{10} n_0p_0 - b_{11}n_1p_1 \right) \\
+%%&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( b_{00} - b_{10} )n_0p_0 + ( b_{01} - b_{11})n_1p_1 \right) \\
+%\nonumber = &\frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( A_{10} - A_{00} )P n_0p_0 + ( A_{11} - A_{01})P n_1p_1 \right).
+%\end{align}
 
+Now since we know $A_{10} - A_{00}  < 0$ and $A_{11} - A_{01} > 0$, we also have
 \begin{align}
-\partial s_L / \partial p_0 <0  \text{ and } \partial s_L / \partial p_1 >0
+\partial s_L / \partial p_0 <0  \text{ and } \partial s_L / \partial p_1 >0.
 \end{align}
-
 In other words, in the region of laws with majority support, divisiveness goes up with the number of minority members punished and down with the number of minority members punished.  This means that the law most favored by the majority, which is in the upper left corner of rectangle A, is also the most divisive.
 
 \subsection{Privacy Effects}
 Having outlined some basic properties of our model, we turn our attention to the effects of different types of privacy.  
 
 \subsubsection{Effects of Attribute Privacy}
-We begin with attribute privacy, which we understand to mean restrictions on S(0).  We model the extreme case of anonymity, represented as $S(0) = S(1)$.  The set of possible laws is represented by line C in Figure \ref{fig:criminals}.  Note that line C passes through the point $ \left(C(0), C(1) \right)$ at the upper right of rectangle A.  A more moderate version of attribute privacy may place bounds on the ratio of $S(1)$ to $S(0)$.  For example, we may specify,
+We begin with attribute privacy, which we understand to mean restrictions on $S_0$.  We model the extreme case of anonymity, represented as $S_0 = S_1$.  The set of possible laws is represented by line C in Figure \ref{fig:criminals}.  Note that line C passes through the point $ \left(C_0, C_1 \right)$ at the upper right of rectangle A.  A more moderate version of attribute privacy may place bounds on the ratio of $S_1$ to $S_0$.  For example, we may specify,
 
 \begin{align}
-0 < \underbar r < S(1) /S(0) < \bar r < \infty
+0 < \underbar r < S_1 /S_0 < \bar r < \infty
 \end{align}
 
-Since divisiveness is maximized at the point $ \left(0, C(1) \right)$, attribute privacy necessarily reduces the maximum amount of divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B,
+Since divisiveness is maximized at the point $ \left(0, C_1 \right)$, attribute privacy necessarily reduces the maximum amount of divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B,
 
-\begin{align}
-C(1)/C(0) > - b_{00}n_0 / b_{01}n_1 
-\end{align}
+%Letting $b_{00} =  l  -  P A_{00} $ and $b_{01} = l - P A_{01} $
+%\begin{align}
+%C_1/C_0 > - b_{00}n_0 / b_{01}n_1 
+%\end{align}
 
 This means that any law that falls inside line C and rectangle A will also have majority support.  The majority would offer the most support to laws that fall further to the upper right of the line.  It is also possible, for the slope of line C to be less than the slope of line B,
-
-\begin{align}
-C(1)/C(0) > - b_{00}n_0 / b_{01}n_1 
-\end{align}
+%
+%\begin{align}
+%C(1)/C(0) > - b_{00}n_0 / b_{01}n_1 
+%\end{align}
 
 In this case, no law on line C will have majority support except for a law at the origin.  Nevertheless, divisiveness decreases since having no law or a law at the origin brings divisiveness to zero.
 
@@ -285,7 +284,7 @@ We interpret search privacy to mean that not all individuals who are searched wh
 F<1
 \end{align}
 
-This condition limits the maximum number of people, of either type, who may be punished.  This is depicted by rectangle D in Figure \ref{fig:criminals}.  Like attribute privacy, search privacy reduces the maximum amount of divisiveness that can be caused by a law.  Specifically, the maximum divisiveness is reduced by a factor of F.  Unlike attribute privacy, search privacy never results in a scenario in which a previously enforced law can no longer have majority support.  As long as $S(0)$ and $S(1)$ are unchanged, reducing F still results in a law with majority support.  Divisiveness and welfare are simply scaled downwards.
+This condition limits the maximum number of people, of either type, who may be punished.  This is depicted by rectangle D in Figure \ref{fig:criminals}.  Like attribute privacy, search privacy reduces the maximum amount of divisiveness that can be caused by a law.  Specifically, the maximum divisiveness is reduced by a factor of F.  Unlike attribute privacy, search privacy never results in a scenario in which a previously enforced law can no longer have majority support.  As long as $S_0$ and $S_1$ are unchanged, reducing F still results in a law with majority support.  Divisiveness and welfare are simply scaled downwards.
 
 \subsubsection{Effects of Search Quantity Privacy}
 
@@ -293,10 +292,10 @@ To model a policy of search quantity privacy, we impose the condition,
 
 \begin{align}
 %\frac{\sum_j S(j)}{n_0 + n_1} = 
-\frac{n_0 S(0) + n_1 S(1)}{n_0 + n_1}  < m
+\frac{n_0 S_0 + n_1 S_1}{n_0 + n_1}  < m
 \end{align}
 
-The maximum value of $S(0)$ can be attained when $S(1) = 0$, allowing $S(0) = m (n_0 + n_1)/n_0$.  Similarly, when $S(0) = 0$, $S(1)$ can attain a value of $S(1) = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S(0)$ is smaller than the maximum value of $S(1)$.  This feature is plotted as line E in Figure \ref{fig:criminals}.  Laws below this line are acceptable under the search quantity standard.  
+The maximum value of $S_0$ can be attained when $S_1 = 0$, allowing $S_0 = m (n_0 + n_1)/n_0$.  Similarly, when $S_0 = 0$, $S_1$ can attain a value of $S_1 = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S_0$ is smaller than the maximum value of $S_1$.  This feature is plotted as line E in Figure \ref{fig:criminals}.  Laws below this line are acceptable under the search quantity standard.  
 
 As the figure demonstrates, search quantity privacy may reduce the maximum possible divisiveness of a law.  The majority will still favor a law that is at the top corner of the acceptable region, which represents the maximum amount of divisiveness for a given amount of searches.  If the bound $m$ is not set low enough, the maximum amount of divisiveness may not be reduced at all.
 
@@ -304,23 +303,20 @@ As the figure demonstrates, search quantity privacy may reduce the maximum possi
 
 Search Specificity Privacy requires a certain proportion of searches to turn up evidence that an individual is breaking the law.  We represent this by writing,
 
-$$\frac{\sum_j S(j)C(j)F}{\sum_j S(j)} = \frac{ n_0 S(0)C(0)F + n_1 S(1)C(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
+$$\frac{\sum_j S(j)C(j)F}{\sum_j S(j)} = \frac{ n_0 S_0C_0F + n_1 S_1C_1F}{n_0 S_0 + n_1 S_1}  > \rho.$$
 
-Rearranging,
-
+Rearranging, we obtain
 \begin{align}
-\nonumber n_0 S(0)C(0)F + n_1 S(1)C(1)F &> \rho n_0 S(0) + \rho n_1 S(1) \\
-\nonumber  (n_1 C(1)F - \rho n_1 ) S(1) &>  - (n_0 C(0)F - \rho n_0 )S(0) \\
+%\nonumber n_0 S(0)C(0)F + n_1 S(1)C(1)F &> \rho n_0 S(0) + \rho n_1 S(1) \\
+\nonumber  (n_1 C_1 F - \rho n_1 ) S_1 &>  - (n_0 C_0F - \rho n_0 )S_0.
 \end{align}
 
-When $\rho$ is close enough to 0, the left hand side is nonnegative and the right hand side is nonpositive, so the constraint does not bind.  The set of possible laws is therefore not reduced.  On the other hand, when $\rho$ is close enough to 1, the left hand side is nonpositive and the right hand side is nonnegative, so the constraint binds unless $S(0) = S(1) = 0$.  No law can pass the privacy requirement except for the trivial one that doesn't punish anyone.  
+When $\rho$ is close enough to 0, the left hand side is nonnegative and the right hand side is nonpositive, so the constraint does not bind.  The set of possible laws is therefore not reduced.  On the other hand, when $\rho$ is close enough to 1, the left hand side is nonpositive and the right hand side is nonnegative, so the constraint binds unless $S_0 = S_1 = 0$.  No law can pass the privacy requirement except for the trivial one that doesn't punish anyone.  
 
-The more interesting region is when $\rho$ lies between  $C(0)F$ and $C(1)F$.  In the case that $C(1) > C(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
-
+The more interesting region is when $\rho$ lies between  $C_0F$ and $C_1 F$.  In the case that $C_1 > C_0$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as
 \begin{align}
-\frac{S(1)}{S(0)} &>  \frac{\rho n_0 - n_0 C(0)F }{n_1 C(1)F - \rho n_1}
+\frac{S_1}{S_0} &>  \frac{\rho n_0 - n_0 C_0F }{n_1 C_1F - \rho n_1},
 \end{align}
-
 where the fraction is arranged so that the numerator and denominator are positive.  This constraint is depicted by line F in Figure \ref{fig:criminals}.  Every law above this line is permitted under the search specificity rule.  Unfortunately, this rule does nothing to reduce the maximum possible divisiveness of a law.  In fact, it may have the opposite effect, allowing only laws for which members of the minority are much more likely to be searched than members of the majority.
 
 In part, this conclusion may be the result of limitations of our model.  We have assumed that all members within a group have equal odds of breaking the law and equal odds of being searched.  A more detailed model might allow individuals to vary within each group.  Authorities may be able to select a smaller fraction of each group, choosing individuals with a higher probability of breaking the law, thereby increasing the proportion of searches that turn up evidence.  In such a model, search specificity privacy may be expected to limit the maximum divisiveness of a law.  Nevertheless, we believe that our central insight, that search specificity privacy limits searches on the majority more than on the minority, will continue to hold.
