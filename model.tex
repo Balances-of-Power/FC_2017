@@ -98,11 +98,12 @@ As we use the terms divisiveness, polarization, and privacy throughout the paper
 \end{itemize}
 
 \subsection{Overview}
-Our general model presents an incentive structure that relates the polarization of a society to the passage of divisive laws. Given a specific law, our model assumes the following. 
+Our general model presents an incentive structure that relates the polarization of a society to the passage of divisive laws. At a high level, our model captures the following dynamics.
 \begin{itemize}
-\item Each individual begins with an initial evaluation of the law. We refer to this initial evaluation as the direct benefit for that individual.
-\item Each individual's support for a law may (but need not) be influenced by other individuals.
-\item Individuals are heterogeneous in their influence over others.
+\item Each individual begins with an initial evaluation of the law. This represents the direct benefit of the law to that individual.
+\item Each individual may (optionally) be influenced by others.  The polarization of society is captured in an influence matrix.
+\item An individual's support for a law is found by combining their initial evaluations with those of their influencers.
+\item Laws that gather positive support from a majority of citizens are passed or maintained.
 %\item Each individual may have a non-commutative influence on another individual's evaluation.
 %%\item We distinguish an individual's derived benefit of a law from an individual's support of a law. 
 %\item An individual's support is a function of their derived benefit together with a weighted influence of others. %influence With respect to a fixed law, suppose the mixing process happens and we measure, then we cannot tell the difference between the influence and the case where each individual makes their own evaluation or is influenced by others.  
@@ -110,11 +111,11 @@ Our general model presents an incentive structure that relates the polarization 
 
 %Want to talk about privacy.
 \subsection {Citizen Influence}
-For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We may think of $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
+For each pair of citizens $i,j\in\{1,\dots N\},$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We may think of $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
 
 % into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. 
 
-Each individual will arrive at a level of support for the law based on a weighted average of the valuations of their influences, where the weighting is determined by the influence parameters $a_{ij}$. To be consistent with the notion of weighted average, we thus require $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
+Each individual will arrive at a level of support for the law based on a weighted average of the valuations of their influencers, where the weighting is determined by the influence parameters $a_{ij}$. To be consistent with the notion of weighted average, we thus require $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
 
 \subsection{Citizen Valuations of Laws}
 Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
