@@ -115,19 +115,22 @@ For each pair of citizens $i,j\in\{1,\dots N\},$ define $$a_{ij}\in [0,1]$$ to b
 
 % into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. 
 
-Each individual will arrive at a level of support for the law based on a weighted average of the valuations of their influencers, where the weighting is determined by the influence parameters $a_{ij}$. To be consistent with the notion of weighted average, we thus require $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
+Each individual will arrive at a level of support for the law based on a weighted average of the valuations of their influencers, where the weighting is determined by the influence parameters $a_{ij}$. To be consistent with the notion of weighted average, we thus require $$\sum_ja_{ij}=1.$$
 
 \subsection{Citizen Valuations of Laws}
-Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
-%Alternatively, 
-let $$V_L(i)\in\mathbb{R}$$ represent the direct impact of the law on person $i$. We assume that the direct impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
+Given a law $L$ and a citizen $i\in\{1,\dots N\}$, 
+let $$V_L(i)\in\mathbb{R}$$ represent the \textit{direct impact} of the law on person $i$. We assume that the direct impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
 
-If an individual's direct valuation for a law is perfectly in tune with the direct impact on the law then this person's support for a law will be $V_L(i)$. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
-In other cases, for example where a law has little or no direct impact on the individual, a ban on muslims for example, initial evaluation of the law may be something very close to zero, i.e. neither positive nor negative.  Nevertheless a person's view of the law may evolve based on the views and experiences of their influences.  In such cases, we may suppose that after some amount of time, an individual's support for L evolves to become 
+While the direct impact represents an initial evaluation of a law, we intuitively expect a person's view to evolve after some time, based on the views and experiences of their influences.  To capture this phenomenon, we separately define the \textit{support} of citizen $i$ for law $L$ to be
 \begin{equation}
 \label{eq:support}
 U_L(i)=\sum_ja_{ij}V_L(j).
 \end{equation}
+
+If an individual's direct valuation for a law is perfectly aligned with the direct valuations of their influencers, then this person's support for a law will simply equal $V_L(i)$. 
+% weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
+In other cases, a law may have little or no direct impact on the individual, but their influences may lead them to have strongly positive or strongly negative support for the law.  For example, most Americans may experience little direct benefit from a ban on muslims, but they may be influenced by those that are directly affected to oppose this policy.
+
 
 
 %If we order the elements of this vector and graph it on a line, we can see directly from the graph a number of things
