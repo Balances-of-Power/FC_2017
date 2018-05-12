@@ -3,7 +3,8 @@
 %  - title/authors on even/odd pages
 %This is good for other readers to enable proper archiving among other papers and pointing to content.
 %Even if the title page states the title, when printed and stored in a folder, when blindly opening the folder, one could hit not the title page, but an arbitrary page. Therefore, it is good to have title printed on the pages, too.
-\documentclass[runningheads,a4paper]{llncs}
+%\documentclass[runningheads,a4paper]{llncs}
+\documentclass[conference]{IEEEtran}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -171,17 +172,35 @@ pdfstartview=Fit
 %\iffalse
 %Multiple institutes are typeset as follows:
 %\author{Anonymized Author(s)}
-\author{Benjamin Johnson\inst{1} \and Paul Laskowski\inst{2} }
+%\author{Benjamin Johnson \and Paul Laskowski}
+
+
+\author{\IEEEauthorblockN{Benjamin Johnson}
+\IEEEauthorblockA{\textit{Chair of Cyber Trust} \\
+\textit{Technical University of Munich}\\
+Munich, Germany \\
+benjaminejohnson@gmail.com}
+\and
+\IEEEauthorblockN{Paul Laskowski}
+\IEEEauthorblockA{\textit{School of Information} \\
+\textit{University of California, Berkeley}\\
+Berkeley, California,  USA \\
+paul@ischool.berkeley.edu}
+}
+
+
+
+
 %If there are too many authors, use \authorrunning
 %\authorrunning{First Author et al.}
 
 %\institute{Anonymized Institution(s)}
-\institute{
-No Affiliation\\
-\email{benjaminejohnson@gmail.com}\and
-UC Berkeley\\
-\email{paul@ischool.berkeley.edu}
-}
+%\institute{
+%Technical University of Munich\\
+%\email{benjaminejohnson@gmail.com}\and
+%UC Berkeley\\
+%\email{paul@ischool.berkeley.edu}
+%}
 %\fi
 			
 \maketitle
@@ -190,7 +209,7 @@ UC Berkeley\\
 \input{abstract}
 \end{abstract}
 
-\keywords{Privacy, Polarization, Law, Search, Marginalized Populations}
+%\keywords{Privacy, Polarization, Law, Search, Marginalized Populations}
 
 
 \input{intro}
